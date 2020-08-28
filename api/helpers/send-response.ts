@@ -6,11 +6,15 @@ export default (
   message: string,
   payload?: any
 ) => {
-  res.writeHead(code, message).end(
-    JSON.stringify({
-      code,
-      message,
-      payload: payload ?? null
+  const json = JSON.stringify({
+    code,
+    message,
+    payload: payload ?? null
+  })
+
+  res
+    .writeHead(code, message, {
+      'content-type': 'application/json; charset=utf-8'
     })
-  )
+    .end(json)
 }
