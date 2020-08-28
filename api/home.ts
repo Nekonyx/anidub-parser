@@ -16,7 +16,7 @@ export default async (_: NowRequest, res: NowResponse) => {
           id: parseId(e.attribs.href),
           url: e.attribs.href,
           poster: i('img').attr('data-src'),
-          title: i('.th-title').text(),
+          title: i('.th-title').text().trim(),
           year: i('span a').text()
         }
       })
