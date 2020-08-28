@@ -9,7 +9,7 @@ export default (
   const json = JSON.stringify({
     code,
     message,
-    payload: payload ?? null
+    payload: payload ? payload : null
   })
 
   res
